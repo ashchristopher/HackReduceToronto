@@ -18,7 +18,7 @@ print "Go to %s to see status of the job." % disco.master
 :clicks (ad id,people who clicked the ads)
 """
 results = disco.new_job(name=name,
-        input=["tag://hackreduce:search:history"],
+        input=["tag://gap:small:search"],
         map_input_stream=(
             func.map_input_stream,
             func.chain_reader,
