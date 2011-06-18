@@ -1,9 +1,17 @@
 var chart;
 $(document).ready(function() {
    var categories = [];
+   var scores = {cooking: [], nerd: [], sex: [], travel: []}
+
    DATA.forEach(function(item) {
-       console.log(item);
+       categories.push(item.time);
+
+       scores.cooking.push(item.scores.cooking);
+       scores.sex.push(item.scores.sex);
+       scores.nerd.push(item.scores.nerd);
+       scores.travel.push(item.scores.travel);
    });
+
    chart = new Highcharts.Chart({
       chart: {
          renderTo: 'placeholder',
@@ -13,11 +21,7 @@ $(document).ready(function() {
          text: 'Search by Type'
       },
       xAxis: {
-         categories: [
-            'First', 
-            'Second', 
-            'Third' 
-         ]
+         categories: categories,
       },
       yAxis: {
          min: 0,
@@ -49,19 +53,19 @@ $(document).ready(function() {
       },
            series: [{
          name: 'Travel',
-         data: [49.9, 71.5, 106.4]
+         data: scores.travel
    
       }, {
          name: 'Sex',
-         data: [83.6, 78.8, 98.5]
+         data: scores.sex
    
       }, {
          name: 'Nerd',
-         data: [48.9, 38.8, 39.3]
+         data: scores.nerd
    
       }, {
          name: 'Cooking',
-         data: [42.4, 33.2, 34.5]
+         data: scores.cooking
    
       }]
    });
