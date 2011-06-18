@@ -4,3 +4,5 @@ programmer_nerd = (
     'java ', 'c ', 'c++', 'php', 'visual basic', 'perl', 'python', 'c#', 'javascript', 'ruby', 
     'erlang', 'lisp',
 )
+
+hipster = ()
