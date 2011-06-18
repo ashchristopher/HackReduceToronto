@@ -1,4 +1,6 @@
 import sys
+import json
+
 from disco.core import Disco, result_iterator
 from disco.settings import DiscoSettings
 
@@ -14,11 +16,8 @@ disco = Disco(DiscoSettings()['DISCO_MASTER'])
 print "Starting Disco job (%s).." % name
 print "Go to %s to see status of the job." % disco.master
 
-"""
-:clicks (ad id,people who clicked the ads)
-"""
 results = disco.new_job(name=name,
-        input=["tag://data:gap-small-chunk"],
+        input=["tag://gap:100000"],
         map_input_stream=(
             func.map_input_stream,
             func.chain_reader,
@@ -28,6 +27,12 @@ results = disco.new_job(name=name,
         save=True).wait()
 
 print "Job done. Results:"
-for word, count in result_iterator(results):
-    print word, count
+f = open('data.json', 'w')
+for time_of_day, scores in result_iterator(results):
+    str_time = time_of_day.strftime("%Y-%m-%d %H:%M")
+    s = json.dumps({str_time: scores})
+
+    f.write(s + "\n")
+
+f.close()
 

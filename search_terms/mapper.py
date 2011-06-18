@@ -6,16 +6,7 @@ def map(line, params):
     from datetime import datetime, timedelta
     from disco.util import msg
 
-    sexual = ('Cockrings', 'sex', 'tits', 'naked', 'girls', 'fuck', 'suck', 'teen', 'hot', 'cum', )
-
-    programmer_nerd = (
-        'java ', 'c ', 'c++', 'php', 'visual basic', 'perl', 'python', 'c#', 'javascript', 'ruby', 
-        'erlang', 'lisp',
-    )
-
-    hipster = ()
-
-    time_grouping = 30
+    time_grouping = 5
 
     try: 
         unknown, timestamp, uid, query, frequency = line.split("','")
@@ -30,16 +21,24 @@ def map(line, params):
             seconds=date_obj.second, 
             microseconds=date_obj.microsecond)
 
-    """ 
-    for query, check that it is in in the word lists.
 
-    For every word list that the query is found in, in some subtext, add a +1 score.
-    """
+    # Give a score if the words within each query are in any of the 4 lists.
+    sex = ('cockrings', 'sex', 'tits', 'naked', 'girls', 'fuck', 'suck', 'teen', 
+                'hot', 'cum', 'topless', 'nude', )
 
-    score = {}
-    score['query'] = query
-    score['sex'] = int(query in sexual)
-    score['nerd'] = int(query in programmer_nerd)
-    score['hipster'] = int(query in hipster)
+    travel = ('fly', 'flight', 'plane', 'drive', 'europe', 'america', 'tours', 
+                'map', 'hotel', 'cheap', 'asia', )
+
+    nerd = ('java ', 'c ', 'c++', 'php', 'visual basic', 'perl', 
+            'python', 'c#', 'javascript', 'ruby', 'erlang', 'lisp', )
+
+    cooking = ('ice', 'cream', 'recipe', 'pasta', 'sauce', 'soup', 'meat', )
+
+
+    score = {'sex': 0, 'nerd': 0, 'travel': 0, 'cooking': 0}
+
+    for word in query.split():
+        for key in score.keys():
+            score[key] += int(word.lower() in locals()[key])
 
     yield (nearest_minute, score)
