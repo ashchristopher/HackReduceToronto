@@ -21,12 +21,8 @@ def map(line, params):
             seconds=date_obj.second, 
             microseconds=date_obj.microsecond)
 
-    """ 
-    for query, check that it is in in the word lists.
 
-    For every word list that the query is found in, in some subtext, add a +1 score.
-    """
-
+    # Give a score if the words within each query are in any of the 4 lists.
     sex = ('cockrings', 'sex', 'tits', 'naked', 'girls', 'fuck', 'suck', 'teen', 
                 'hot', 'cum', 'topless', 'nude', )
 

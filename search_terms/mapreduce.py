@@ -14,9 +14,6 @@ disco = Disco(DiscoSettings()['DISCO_MASTER'])
 print "Starting Disco job (%s).." % name
 print "Go to %s to see status of the job." % disco.master
 
-"""
-:clicks (ad id,people who clicked the ads)
-"""
 results = disco.new_job(name=name,
         input=["tag://gap:100000"],
         map_input_stream=(
