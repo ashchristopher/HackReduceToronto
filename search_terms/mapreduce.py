@@ -27,12 +27,15 @@ results = disco.new_job(name=name,
         save=True).wait()
 
 print "Job done. Results:"
-f = open('data.json', 'w')
+f = open('data.js', 'w')
 for time_of_day, scores in result_iterator(results):
     str_time = time_of_day.strftime("%Y-%m-%d %H:%M")
-    s = json.dumps({str_time: scores})
+    s = json.dumps({
+        'time': str_time,
+        'scores': scores
+    })
 
-    f.write(s + "\n")
+    f.write(s + ",\n")
 
 f.close()
 

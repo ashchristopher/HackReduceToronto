@@ -1,5 +1,9 @@
 var chart;
 $(document).ready(function() {
+   var categories = [];
+   DATA.forEach(function(item) {
+       console.log(item);
+   });
    chart = new Highcharts.Chart({
       chart: {
          renderTo: 'placeholder',
