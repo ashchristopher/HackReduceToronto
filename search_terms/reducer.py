@@ -3,4 +3,4 @@
 def reduce(iter, params):
     from disco.util import kvgroup
     for nearest_minute, queries in kvgroup(sorted(iter)):
-        yield nearest_minute, len(queries)
+        yield nearest_minute, queries

@@ -9,7 +9,7 @@ def map(line, params):
     try: 
         unknown, timestamp, uid, query, frequency = line.split("','")
     except ValueError:
-        print msg(line)
+        msg(line)
 
     # bad hack :-(
     time = timestamp.replace("'", "")
