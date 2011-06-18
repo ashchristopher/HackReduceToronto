@@ -18,7 +18,7 @@ $(document).ready(function() {
       yAxis: {
          min: 0,
          title: {
-            text: 'Rainfall (mm)'
+            text: 'Frequencyy'
          }
       },
       legend: {
@@ -34,7 +34,7 @@ $(document).ready(function() {
       tooltip: {
          formatter: function() {
             return ''+
-               this.x +': '+ this.y +' mm';
+               'Freq: '+ this.y +' queries';
          }
       },
       plotOptions: {
