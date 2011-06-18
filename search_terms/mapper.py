@@ -6,6 +6,8 @@ def map(line, params):
     from datetime import datetime, timedelta
     from disco.util import msg
 
+    time_grouping = 30
+
     try: 
         unknown, timestamp, uid, query, frequency = line.split("','")
     except ValueError:
@@ -14,6 +16,9 @@ def map(line, params):
     # bad hack :-(
     time = timestamp.replace("'", "")
     date_obj = datetime.fromtimestamp(float(time[:-3])) # timestamp has milliseconds, shave em off
-    nearest_minute = date_obj - timedelta(minutes=date_obj.minute % 1, seconds=date_obj.second, microseconds=date_obj.microsecond)
+    nearest_minute = date_obj - timedelta(
+            minutes=date_obj.minute % time_grouping, 
+            seconds=date_obj.second, 
+            microseconds=date_obj.microsecond)
 
     yield (nearest_minute, {'unique_id': uid, 'query': query, 'frequency': frequency})
