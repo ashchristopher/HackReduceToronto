@@ -5,5 +5,5 @@ from django.core.urlresolvers import reverse
 
 
 def index(request, template='mapreduce/index.html'):
-    context = {}
+    context = {'data_id': request.GET.get('data_id', '')}
     return render_to_response(template, context, context_instance=RequestContext(request))
