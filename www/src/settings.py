@@ -94,6 +94,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'clean',
+    'south',
+    'mapreduce',
 )
 
 SOUTH_AUTO_FREEZE_APP = True
