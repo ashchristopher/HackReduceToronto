@@ -6,6 +6,15 @@ def map(line, params):
     from datetime import datetime, timedelta
     from disco.util import msg
 
+    sexual = ('Cockrings', 'sex', 'tits', 'naked', 'girls', 'fuck', 'suck', 'teen', 'hot', 'cum', )
+
+    programmer_nerd = (
+        'java ', 'c ', 'c++', 'php', 'visual basic', 'perl', 'python', 'c#', 'javascript', 'ruby', 
+        'erlang', 'lisp',
+    )
+
+    hipster = ()
+
     time_grouping = 30
 
     try: 
@@ -21,4 +30,16 @@ def map(line, params):
             seconds=date_obj.second, 
             microseconds=date_obj.microsecond)
 
-    yield (nearest_minute, {'unique_id': uid, 'query': query, 'frequency': frequency})
+    """ 
+    for query, check that it is in in the word lists.
+
+    For every word list that the query is found in, in some subtext, add a +1 score.
+    """
+
+    score = {}
+    score['query'] = query
+    score['sex'] = int(query in sexual)
+    score['nerd'] = int(query in programmer_nerd)
+    score['hipster'] = int(query in hipster)
+
+    yield (nearest_minute, score)
