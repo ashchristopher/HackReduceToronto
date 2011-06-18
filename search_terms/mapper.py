@@ -6,7 +6,7 @@ def map(line, params):
     from datetime import datetime, timedelta
     from disco.util import msg
 
-    time_grouping = 5
+    time_grouping = 30
 
     try: 
         unknown, timestamp, uid, query, frequency = line.split("','")

@@ -17,7 +17,7 @@ print "Starting Disco job (%s).." % name
 print "Go to %s to see status of the job." % disco.master
 
 results = disco.new_job(name=name,
-        input=["tag://gap:100000"],
+        input=["tag://gap:1million"],
         map_input_stream=(
             func.map_input_stream,
             func.chain_reader,
