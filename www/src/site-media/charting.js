@@ -42,7 +42,7 @@ $(document).ready(function() {
       tooltip: {
          formatter: function() {
             return ''+
-               this.series.name + ' (' + this.y +' queries)';
+               this.series.name + ' (' + this.y +' queries), (' + this.x + ')';
          }
       },
       plotOptions: {
