@@ -6,7 +6,8 @@ def reduce(iter, params):
         results = {
             'nerd' : 0,
             'sex' : 0,
-            'hipster' : 0,
+            'travel': 0,
+            'cooking': 0,
         }
         for result_dict in queries:
             for key in results.keys():
