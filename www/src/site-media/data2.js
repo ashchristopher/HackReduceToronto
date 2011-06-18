@@ -1,3 +1,4 @@
+var DATA = [
 {"scores": {"travel": 195, "cooking": 22, "nerd": 3, "sex": 154}, "time": "2011-06-16 23:30"},
 {"scores": {"travel": 342, "cooking": 38, "nerd": 2, "sex": 280}, "time": "2011-06-17 00:00"},
 {"scores": {"travel": 388, "cooking": 51, "nerd": 11, "sex": 319}, "time": "2011-06-17 00:30"},
@@ -51,4 +52,4 @@
 {"scores": {"travel": 415, "cooking": 32, "nerd": 5, "sex": 305}, "time": "2011-06-18 00:30"},
 {"scores": {"travel": 354, "cooking": 34, "nerd": 5, "sex": 293}, "time": "2011-06-18 01:00"},
 {"scores": {"travel": 338, "cooking": 46, "nerd": 3, "sex": 314}, "time": "2011-06-18 01:30"},
-{"scores": {"travel": 353, "cooking": 25, "nerd": 6, "sex": 288}, "time": "2011-06-18 02:00"},
+{"scores": {"travel": 353, "cooking": 25, "nerd": 6, "sex": 288}, "time": "2011-06-18 02:00"}]
